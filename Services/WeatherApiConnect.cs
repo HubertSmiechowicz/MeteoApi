@@ -1,5 +1,8 @@
 ﻿using Microsoft.Extensions.Configuration;
 using System.Text.Json;
+using Newtonsoft.Json;
+using MeteoApi.Models;
+using System.Security.Principal;
 
 namespace MeteoApi.Services
 {
@@ -24,8 +27,9 @@ namespace MeteoApi.Services
                 {
                     if (response.IsSuccessStatusCode)
                     {
-                        return response.Content.ReadAsStringAsync().Result;
-                        
+                        string jsonRespone = response.Content.ReadAsStringAsync().Result;
+                        var presentDayForecast = JsonConvert.DeserializeObject<PresentDayForecast>(jsonRespone);
+                        return presentDayForecast.ToString();
                     }
                     else
                     {
