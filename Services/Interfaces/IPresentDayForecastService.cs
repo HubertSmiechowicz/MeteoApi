@@ -1,7 +1,9 @@
-﻿namespace MeteoApi.Services
+﻿using MeteoApi.Models;
+
+namespace MeteoApi.Services
 {
     public interface IPresentDayForecastService
     {
-        string GetForecastForCity(string cityName);
+        PresentDayForecast GetForecastForCity(string cityName);
     }
 }

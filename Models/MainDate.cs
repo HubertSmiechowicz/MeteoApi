@@ -7,6 +7,8 @@ namespace MeteoApi.Models
     {
         [JsonPropertyName("temp")]
         public string temp { get; set; }
+        [JsonPropertyName("feels_like")]
+        public string feels_like { get; set; }
         [JsonPropertyName("pressure")]
         public string pressure { get; set; }
         [JsonPropertyName("humidity")]

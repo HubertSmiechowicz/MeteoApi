@@ -1,4 +1,6 @@
-﻿namespace MeteoApi.Services
+﻿using MeteoApi.Models;
+
+namespace MeteoApi.Services
 {
     public class PresentDayForecastService : IPresentDayForecastService
     {
@@ -11,7 +13,7 @@
             _connect = connect;
         }
 
-        public string GetForecastForCity(string cityName)
+        public PresentDayForecast GetForecastForCity(string cityName)
         {
             return _connect.GetDataFromApi(specURI, cityName);
         }

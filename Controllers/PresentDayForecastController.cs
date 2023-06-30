@@ -1,4 +1,5 @@
-﻿using MeteoApi.Services;
+﻿using MeteoApi.Models;
+using MeteoApi.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace MeteoApi.Controllers
@@ -15,7 +16,7 @@ namespace MeteoApi.Controllers
         }
 
         [HttpGet]
-        public string GetForecastForCity([FromQuery] string cityName)
+        public PresentDayForecast GetForecastForCity([FromQuery] string cityName)
         {
             return _presentDayForecastService.GetForecastForCity(cityName);
         }

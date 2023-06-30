@@ -12,7 +12,7 @@ namespace MeteoApi.Services
         private static HttpClient client = new HttpClient();
         private readonly string baseURI = "https://api.openweathermap.org/data/2.5/";
 
-        public string GetDataFromApi(string specURI, string cityName)
+        private string GetApiKey()
         {
 
             var builder = new ConfigurationBuilder()
@@ -20,33 +20,26 @@ namespace MeteoApi.Services
                 .AddJsonFile("Properties/apiKeys.json");
 
             var configuration = builder.Build();
-            if (configuration["ApiKey"] != null)
+            return configuration["ApiKey"];
+        }
+
+        public PresentDayForecast GetDataFromApi(string specURI, string cityName)
+        {
+            var presentDayForecast = new PresentDayForecast();
+            if (GetApiKey() != null)
             {
-                HttpResponseMessage response = client.GetAsync(baseURI + specURI + $"q={cityName}&appid={configuration["ApiKey"]}").Result;
+                HttpResponseMessage response = client.GetAsync(baseURI + specURI + $"q={cityName}&appid={GetApiKey()}").Result;
                 if (response != null)
                 {
                     if (response.IsSuccessStatusCode)
                     {
                         string jsonRespone = response.Content.ReadAsStringAsync().Result;
-                        var presentDayForecast = JsonConvert.DeserializeObject<PresentDayForecast>(jsonRespone);
-                        return presentDayForecast.ToString();
+                        presentDayForecast = JsonConvert.DeserializeObject<PresentDayForecast>(jsonRespone);
                     }
-                    else
-                    {
-                        return response.StatusCode.ToString();
-                    }
-                    }
-                    else
-                    {
-                        throw new NullReferenceException();
-                    }
+                      
                 }
-                else
-                {
-                    throw new NullReferenceException();
-                }
-
             }
-
+            return presentDayForecast;
         }
     }
+}

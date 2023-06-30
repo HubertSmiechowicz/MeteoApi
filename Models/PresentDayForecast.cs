@@ -13,6 +13,10 @@ namespace MeteoApi.Models
         [JsonPropertyName("wind")]
         public Wind wind { get; set; }
 
+        public PresentDayForecast()
+        {
+
+        }
         public PresentDayForecast(string name, List<Weather> weather, MainDate main, Wind wind)
         { 
             this.name = name;
