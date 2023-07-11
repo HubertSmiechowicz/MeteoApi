@@ -23,13 +23,16 @@ namespace MeteoApi.Services
             return configuration["ApiKey"];
         }
 
-        public PresentDayForecast GetDataFromApi(string specURI, string cityName)
+        private HttpResponseMessage connectWeatherApi(string specURI, string cityName)
+        {
+            return client.GetAsync(baseURI + specURI + $"q={cityName}&appid={GetApiKey()}&lang=pl").Result;
+        }
+
+        public PresentDayForecast GetPresentDayForecastFromApi(string specURI, string cityName)
         {
             var presentDayForecast = new PresentDayForecast();
-            if (GetApiKey() != null)
-            {
-                HttpResponseMessage response = client.GetAsync(baseURI + specURI + $"q={cityName}&appid={GetApiKey()}").Result;
-                if (response != null)
+            HttpResponseMessage response = connectWeatherApi(specURI, cityName);
+            if (response != null)
                 {
                     if (response.IsSuccessStatusCode)
                     {
@@ -38,7 +41,6 @@ namespace MeteoApi.Services
                     }
                       
                 }
-            }
             return presentDayForecast;
         }
     }

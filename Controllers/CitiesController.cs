@@ -1,0 +1,29 @@
+﻿using MeteoApi.Services;
+using Microsoft.AspNetCore.Mvc;
+
+namespace MeteoApi.Controllers
+{
+    [ApiController]
+    [Route("[controller]")]
+    public class CitiesController : Controller
+    {
+        private ICitiesService _citiesService;
+
+        public CitiesController(ICitiesService citiesService)
+        {
+            _citiesService = citiesService;
+        }
+
+        [HttpGet]
+        public List<string> GetCities()
+        {
+            return _citiesService.GetCities();
+        }
+
+        [HttpGet("{main}")]
+        public List<string> GetMainCities()
+        {
+            return _citiesService.GetMainCities();
+        }
+    }
+}

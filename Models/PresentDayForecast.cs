@@ -1,33 +1,41 @@
 ﻿using System.Text.Json.Serialization;
+using Newtonsoft.Json;
 
 namespace MeteoApi.Models
 {
+    [Serializable]
     public class PresentDayForecast
     {
-        [JsonPropertyName("name")]
+        [JsonProperty("name")]
         public string name { get; set; }
-        [JsonPropertyName("weather")]
+
+        [JsonProperty("weather")]
         public List<Weather> weather { get; set; }
-        [JsonPropertyName("main")]
+
+        [JsonProperty("main")]
         public MainDate main { get; set; }
-        [JsonPropertyName("wind")]
+
+        [JsonProperty("wind")]
         public Wind wind { get; set; }
+
+        [JsonProperty("clouds")]
+        public Clouds clouds { get; set; }
+
+        [JsonProperty("rain")]
+        public Rain rain { get; set; }
 
         public PresentDayForecast()
         {
 
         }
-        public PresentDayForecast(string name, List<Weather> weather, MainDate main, Wind wind)
+        public PresentDayForecast(string name, List<Weather> weather, MainDate main, Wind wind, Clouds clouds, Rain rain)
         { 
             this.name = name;
             this.weather = weather;
             this.main = main;
             this.wind = wind;
-        }
-
-        public override string ToString() 
-        {
-            return $"Forecast for {name}:\nDescription: {weather[0].description}\nTemperature: {main.Celcius(main.temp)}\nPressure: {main.pressure}\nHumidity: {main.humidity}\nWind speed: {wind.speed}";
+            this.clouds = clouds;
+            this.rain = rain;
         }
 
     }

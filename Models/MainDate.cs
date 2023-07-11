@@ -1,18 +1,32 @@
 ﻿using System.Globalization;
 using System.Text.Json.Serialization;
+using Newtonsoft.Json;
 
 namespace MeteoApi.Models
 {
     public class MainDate
     {
-        [JsonPropertyName("temp")]
+        [JsonProperty("temp")]
         public string temp { get; set; }
-        [JsonPropertyName("feels_like")]
+
+        [JsonProperty("feels_like")]
         public string feels_like { get; set; }
-        [JsonPropertyName("pressure")]
+
+        [JsonProperty("temp_max")]
+        public string temp_max { get; set; }
+
+        [JsonProperty("pressure")]
         public string pressure { get; set; }
-        [JsonPropertyName("humidity")]
+        [JsonProperty("humidity")]
         public string humidity { get; set; }
+
+        public MainDate(string temp, string feels_like, string pressure, string humidity)
+        {
+            this.temp = temp;
+            this.feels_like = feels_like;
+            this.pressure = pressure;
+            this.humidity = humidity;
+        }
 
         public string Celcius(string tempF)
         {

@@ -4,6 +4,6 @@ namespace MeteoApi.Services
 {
     public interface IWeatherApiConnect
     {
-        PresentDayForecast GetDataFromApi(string specURI, string cityName);
+        PresentDayForecast GetPresentDayForecastFromApi(string specURI, string cityName);
     }
 }
