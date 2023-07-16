@@ -26,6 +26,8 @@ namespace MeteoApi
             builder.Services.AddTransient<IWeatherApiConnect, WeatherApiConnect>();
             builder.Services.AddTransient<IPresentDayForecastService, PresentDayForecastService>();
             builder.Services.AddTransient<ICitiesService, CitiesService>();
+            builder.Services.AddTransient<IFiveDaysForecastService, FiveDaysForecastService>();
+            builder.Services.AddTransient<IFilesOperationService, FilesOperationService>();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();

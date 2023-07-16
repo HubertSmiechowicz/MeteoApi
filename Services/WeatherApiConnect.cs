@@ -3,6 +3,7 @@ using System.Text.Json;
 using Newtonsoft.Json;
 using MeteoApi.Models;
 using System.Security.Principal;
+using MeteoApi.Models.monthly;
 
 namespace MeteoApi.Services
 {
@@ -28,20 +29,24 @@ namespace MeteoApi.Services
             return client.GetAsync(baseURI + specURI + $"q={cityName}&appid={GetApiKey()}&lang=pl").Result;
         }
 
-        public PresentDayForecast GetPresentDayForecastFromApi(string specURI, string cityName)
+        public T GetForecastFromApi<T>(string specURI, string cityName)
         {
-            var presentDayForecast = new PresentDayForecast();
+            T forecast = default(T);
             HttpResponseMessage response = connectWeatherApi(specURI, cityName);
             if (response != null)
                 {
                     if (response.IsSuccessStatusCode)
                     {
                         string jsonRespone = response.Content.ReadAsStringAsync().Result;
-                        presentDayForecast = JsonConvert.DeserializeObject<PresentDayForecast>(jsonRespone);
+                        forecast = JsonConvert.DeserializeObject<T>(jsonRespone);
+                    }
+                    else
+                    {
+                        Console.WriteLine(response.StatusCode);
                     }
                       
                 }
-            return presentDayForecast;
+            return forecast; 
         }
     }
 }
