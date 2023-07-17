@@ -15,9 +15,9 @@ namespace MeteoApi.Controllers
         }
 
         [HttpGet]
-        public List<string> GetCities()
+        public List<string> GetCities(string cityNameFragment)
         {
-            return _citiesService.GetCities();
+            return _citiesService.GetCities(cityNameFragment);
         }
 
         [HttpGet("{main}")]

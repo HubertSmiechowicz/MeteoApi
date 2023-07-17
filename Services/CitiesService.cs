@@ -1,4 +1,7 @@
 ﻿using MeteoApi.Models;
+using System.Linq;
+using System.Globalization;
+using System.Text;
 
 namespace MeteoApi.Services
 {
@@ -15,16 +18,10 @@ namespace MeteoApi.Services
         }
 
 
-        public List<string> GetCities()
+        public List<string> GetCities(string cityNameFragment)
         {
-            var listCities = _filesOperationService.ReadJsonFile<List<CityApi>>("C:\\Users\\jolan\\Hubert\\source\\MeteoApi\\files\\city.list.json");
-            var cityNames = new List<string>();
-            foreach (var city in listCities) 
-            {
-                string cityName = city.Name;
-                cityNames.Add(cityName);
-            }
-
+            var listCities = _filesOperationService.ReadJsonFile<List<CityApi>>("D:\\Dokumenty\\source\\repos\\MeteoApi\\files\\city.list.json");
+            var cityNames = listCities.Where(city => city.Name.Contains(cityNameFragment, StringComparison.OrdinalIgnoreCase)).Select(city => city.Name).ToList();
             return cityNames;
         }
 

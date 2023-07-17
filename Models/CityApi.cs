@@ -13,5 +13,10 @@ namespace MeteoApi.Models
         {
             Name = name;
         }
+
+        public override string ToString() 
+        {
+            return $"{Name}\n";
+        }
     }
 }

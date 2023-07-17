@@ -29,7 +29,6 @@ namespace MeteoApi.Services
             {
                 reader.Close();
             }
-
             return JsonConvert.DeserializeObject<T>(citiesJson);
         }
     }
