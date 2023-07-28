@@ -1,6 +1,11 @@
-﻿using MeteoApi.Models.FiveDays;
+﻿using MeteoApi.Models;
+using MeteoApi.Models.FiveDays;
 using MeteoApi.Models.FiveDays.dtos;
 using MeteoApi.Models.monthly;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Routing.Template;
+using System;
+using System.Linq;
 
 namespace MeteoApi.Services
 {
@@ -18,23 +23,58 @@ namespace MeteoApi.Services
         {
             var forecastFromApi = _connect.GetForecastFromApi<FiveDaysForecast>(specURI, name);
 
-            var forecastDtos = new List<ForecastDto>();
-
-            foreach (Forecast forecast in forecastFromApi.list) 
+            var forecastDtos = forecastFromApi.list.Select(forecast =>
             {
-                var rain = new RainFiveDays();
-
                 double tempRounded;
                 forecast.main.CalculateTemp(forecast.main.temp, out tempRounded);
 
-                double maxTempRounded;
-                forecast.main.CalculateTemp(forecast.main.temp_max, out maxTempRounded);
+                return new ForecastDto(forecast.dt, tempRounded.ToString(), forecast.clouds.getCloudImage(forecast.rain));
+            }).ToList();
 
-                var forecastDto = new ForecastDto(forecast.dt.ToString(), tempRounded.ToString(), maxTempRounded.ToString(), forecast.clouds.getCloudImage(rain.getRain(forecast.rain)));
-                forecastDtos.Add(forecastDto);
+            return new FiveDaysForecastDto(forecastFromApi.city.name, calculateAverageForecast(forecastDtos));
+        }
+
+        private List<ForecastDto> calculateAverageForecast(List<ForecastDto> forecastDtos)
+        {
+            List<ForecastDto> inMemory = new List<ForecastDto>();
+            List<ForecastDto> final = new List<ForecastDto>();
+            for (int i = forecastDtos.Count - 1; i >= 0; i--) 
+            {
+                if (i == forecastDtos.Count - 1)
+                {
+                    inMemory.Add(forecastDtos[i]);
+                }
+                else
+                {
+                    if (forecastDtos[i].dt.Equals(forecastDtos[i + 1].dt))
+                    {
+                        inMemory.Add(forecastDtos[i]);
+                    }
+                    else
+                    {
+                        ForecastDto forecastDto = new ForecastDto(inMemory[0].dt, temperatureAverage(inMemory), inMemory[0].image);
+                        final.Insert(0, forecastDto);
+                        inMemory.Clear();                    
+                    }
+                }
             }
-
-            return new FiveDaysForecastDto(forecastFromApi.city.name, forecastDtos);
+            return final;
+        }
+        private string temperatureAverage(List<ForecastDto> inMemory)
+        {
+            List<double> temperature = new List<double>();
+            temperature = inMemory.Select(forecastDto => {
+                double temp;
+                double.TryParse(forecastDto.temp, out temp);
+                return temp;
+                }).ToList();
+            double sumTemp = 0;
+            foreach (double temp in temperature) 
+            {
+                sumTemp += temp;
+            }
+            return Math.Round((sumTemp / temperature.Count), 1).ToString();
         }
     }
+
 }

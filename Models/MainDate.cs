@@ -11,7 +11,8 @@ namespace MeteoApi.Models
 
         [JsonProperty("feels_like")]
         public string feels_like { get; private set; }
-
+        [JsonProperty("temp_min")]
+        public string temp_min { get; private set; }
         [JsonProperty("temp_max")]
         public string temp_max { get; private set; }
 
@@ -20,10 +21,11 @@ namespace MeteoApi.Models
         [JsonProperty("humidity")]
         public string humidity { get; private set; }
 
-        public MainDate(string temp, string feels_like, string temp_max, string pressure, string humidity)
+        public MainDate(string temp, string feels_like, string temp_min, string temp_max, string pressure, string humidity)
         {
             this.temp = temp;
             this.feels_like = feels_like;
+            this.temp_min = temp_min;
             this.temp_max = temp_max;
             this.pressure = pressure;
             this.humidity = humidity;

@@ -16,9 +16,9 @@ namespace MeteoApi.Controllers
         }
 
         [HttpGet]
-        public FiveDaysForecastDto GetFiveDaysForecast(string name)
+        public FiveDaysForecastDto GetFiveDaysForecast([FromQuery] string cityName)
         {
-            return _service.GetFiveDaysForecast(name);
+            return _service.GetFiveDaysForecast(cityName);
         }
     }
 }
