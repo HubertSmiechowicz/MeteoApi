@@ -28,7 +28,7 @@ namespace MeteoApi.Services
                 double tempRounded;
                 forecast.main.CalculateTemp(forecast.main.temp, out tempRounded);
 
-                return new ForecastDto(forecast.dt, tempRounded.ToString(), forecast.clouds.getCloudImage(forecast.rain));
+                return new ForecastDto(forecast.dt, tempRounded.ToString(), forecast.clouds.all, checkRain(forecast.rain), forecast.clouds.GetCloudImage(forecast.rain));
             }).ToList();
 
             return new FiveDaysForecastDto(forecastFromApi.city.name, calculateAverageForecast(forecastDtos));
@@ -52,7 +52,7 @@ namespace MeteoApi.Services
                     }
                     else
                     {
-                        ForecastDto forecastDto = new ForecastDto(inMemory[0].dt, temperatureAverage(inMemory), inMemory[0].image);
+                        ForecastDto forecastDto = new ForecastDto(inMemory[0].dt, temperatureAverage(inMemory), cloudAverage(inMemory), rainAverage(inMemory), imageAverage(inMemory));
                         final.Insert(0, forecastDto);
                         inMemory.Clear();                    
                     }
@@ -74,6 +74,64 @@ namespace MeteoApi.Services
                 sumTemp += temp;
             }
             return Math.Round((sumTemp / temperature.Count), 1).ToString();
+        }
+
+        private string imageAverage(List<ForecastDto> inMemory) 
+        {
+            Clouds cloudsForImage = new Clouds(cloudAverage(inMemory));
+            RainFiveDays rainForImage = new RainFiveDays(rainAverage(inMemory));
+
+            return cloudsForImage.GetCloudImage(rainForImage);
+        }
+
+        private string rainAverage(List<ForecastDto> inMemory)
+        {
+            List<double> rains = new List<double>();
+            rains = inMemory.Select(forecastDto =>
+            {
+                double rain;
+                double.TryParse(forecastDto.rain, System.Globalization.CultureInfo.InvariantCulture, out rain);
+                return rain;
+            }).ToList();
+
+
+            double sumRains = 0;
+            foreach (double rain in rains)
+            {
+                sumRains += rain;
+            }
+            return Math.Round((sumRains / rains.Count), 1).ToString();
+        }
+
+        private string cloudAverage(List<ForecastDto> inMemory)
+        {
+            List<double> clouds = new List<double>();
+            clouds = inMemory.Select(forecastDto =>
+            {
+                double all;
+                double.TryParse(forecastDto.cloud, System.Globalization.CultureInfo.InvariantCulture, out all);
+                return all;
+            }).ToList();
+
+
+            double sumClouds = 0;
+            foreach (double cloud in clouds)
+            {
+                sumClouds += cloud;
+            }
+            return Math.Round((sumClouds / clouds.Count), 1).ToString();
+        }
+
+            private string checkRain(RainFiveDays rain)
+        {
+            if (rain != null)
+            {
+                return rain.rain;
+            }
+            else
+            {
+                return "0";
+            }
         }
     }
 

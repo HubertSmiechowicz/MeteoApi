@@ -14,10 +14,10 @@ namespace MeteoApi.Models
             this.all = all;
         }
 
-        public string getCloudImage<T>(T rainAbstract) where T : RainAbstract
+        public string GetCloudImage<T>(T rainAbstract) where T : RainAbstract
         {
-            int cloudPercent;
-            int.TryParse(all, out cloudPercent);
+            double cloudPercent;
+            double.TryParse(all, out cloudPercent);
 
             string rainString;
             if (rainAbstract != null)
