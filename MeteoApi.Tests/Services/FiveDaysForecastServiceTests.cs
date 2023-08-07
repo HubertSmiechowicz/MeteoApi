@@ -12,7 +12,7 @@ namespace MeteoApi.Tests.Services
         [Fact]
         public void GetFiveDaysForecast_ForCloudsBelow20AndRainEquals0_ReturnSunnyImage()
         {
-            Assert.Equal(1 + 1, 2);
+           
         }
     }
 }
