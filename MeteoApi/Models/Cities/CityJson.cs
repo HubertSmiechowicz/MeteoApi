@@ -1,20 +1,20 @@
 ﻿using Newtonsoft.Json;
 
-namespace MeteoApi.Models
+namespace MeteoApi.Models.Cities
 {
     [Serializable]
-    public class CityApi
+    public class CityJson
     {
         [JsonProperty("name")]
         public string Name { get; private set; }
 
 
-        public CityApi(string name)
+        public CityJson(string name)
         {
             Name = name;
         }
 
-        public override string ToString() 
+        public override string ToString()
         {
             return $"{Name}\n";
         }

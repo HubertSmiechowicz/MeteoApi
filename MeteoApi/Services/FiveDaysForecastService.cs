@@ -31,7 +31,7 @@ namespace MeteoApi.Services
                 return new ForecastDto(forecast.dt, tempRounded.ToString(), forecast.clouds.all, checkRain(forecast.rain), forecast.clouds.GetCloudImage(forecast.rain));
             }).ToList();
 
-            return new FiveDaysForecastDto(forecastFromApi.city.name, calculateAverageForecast(forecastDtos));
+            return new FiveDaysForecastDto(forecastFromApi.city.Name, calculateAverageForecast(forecastDtos));
         }
 
         private List<ForecastDto> calculateAverageForecast(List<ForecastDto> forecastDtos)
@@ -46,7 +46,7 @@ namespace MeteoApi.Services
                 }
                 else
                 {
-                    if (forecastDtos[i].dt.Equals(forecastDtos[i + 1].dt))
+                    if (forecastDtos[i].dt.Equals(forecastDtos[i + 1].dt) && i != 0)
                     {
                         inMemory.Add(forecastDtos[i]);
                     }
@@ -54,7 +54,8 @@ namespace MeteoApi.Services
                     {
                         ForecastDto forecastDto = new ForecastDto(inMemory[0].dt, temperatureAverage(inMemory), cloudAverage(inMemory), rainAverage(inMemory), imageAverage(inMemory));
                         final.Insert(0, forecastDto);
-                        inMemory.Clear();                    
+                        inMemory.Clear();
+                        inMemory.Add(forecastDtos[i]);
                     }
                 }
             }

@@ -7,23 +7,25 @@ namespace MeteoApi.Controllers
     [Route("[controller]")]
     public class CitiesController : Controller
     {
-        private ICitiesService _citiesService;
+        private ICitiesJsonService _citiesJsonService;
+        private ICityCollectionService _cityCollectionService;
 
-        public CitiesController(ICitiesService citiesService)
+        public CitiesController(ICitiesJsonService citiesService, ICityCollectionService cityCollectionService)
         {
-            _citiesService = citiesService;
+            _citiesJsonService = citiesService;
+            _cityCollectionService = cityCollectionService;
         }
 
         [HttpGet]
         public List<string> GetCities(string cityNameFragment)
         {
-            return _citiesService.GetCities(cityNameFragment);
+            return _citiesJsonService.GetCities(cityNameFragment);
         }
 
         [HttpGet("{main}")]
         public List<string> GetMainCities()
         {
-            return _citiesService.GetMainCities();
+            return _cityCollectionService.GetMainCities();
         }
     }
 }

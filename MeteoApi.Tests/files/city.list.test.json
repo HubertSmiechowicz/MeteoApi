@@ -1,0 +1,232 @@
+﻿[
+  {
+    "id": 7532438,
+    "name": "Świętochłowice",
+    "state": "",
+    "country": "PL",
+    "coord": {
+      "lon": 18.9102,
+      "lat": 50.297901
+    }
+  },
+  {
+    "id": 7532449,
+    "name": "Działdowo",
+    "state": "",
+    "country": "PL",
+    "coord": {
+      "lon": 20.151899,
+      "lat": 53.2883
+    }
+  },
+  {
+    "id": 7532455,
+    "name": "Józefów",
+    "state": "",
+    "country": "PL",
+    "coord": {
+      "lon": 21.219999,
+      "lat": 52.128502
+    }
+  },
+  {
+    "id": 7532456,
+    "name": "Nowy Dwór Mazowiecki",
+    "state": "",
+    "country": "PL",
+    "coord": {
+      "lon": 20.6917,
+      "lat": 52.4342
+    }
+  },
+  {
+    "id": 7532457,
+    "name": "Hajnówka",
+    "state": "",
+    "country": "PL",
+    "coord": {
+      "lon": 23.5665,
+      "lat": 52.723598
+    }
+  },
+  {
+    "id": 7532473,
+    "name": "Grunwald",
+    "state": "",
+    "country": "PL",
+    "coord": {
+      "lon": 20.1311,
+      "lat": 53.5308
+    }
+  },
+  {
+    "id": 7532474,
+    "name": "Rzeszów",
+    "state": "",
+    "country": "PL",
+    "coord": {
+      "lon": 21.9884,
+      "lat": 50.005402
+    }
+  },
+  {
+    "id": 7532475,
+    "name": "Komańcza",
+    "state": "",
+    "country": "PL",
+    "coord": {
+      "lon": 22.047199,
+      "lat": 49.326698
+    }
+  },
+  {
+    "id": 7532479,
+    "name": "Łaziska",
+    "state": "",
+    "country": "PL",
+    "coord": {
+      "lon": 21.855801,
+      "lat": 51.152401
+    }
+  },
+  {
+    "id": 7532480,
+    "name": "Karpacz",
+    "state": "",
+    "country": "PL",
+    "coord": {
+      "lon": 15.7442,
+      "lat": 50.763802
+    }
+  },
+  {
+    "id": 7532481,
+    "name": "Oława",
+    "state": "",
+    "country": "PL",
+    "coord": {
+      "lon": 17.294201,
+      "lat": 50.957401
+    }
+  },
+  {
+    "id": 7532485,
+    "name": "Rejowiec Fabryczny",
+    "state": "",
+    "country": "PL",
+    "coord": {
+      "lon": 23.2498,
+      "lat": 51.119202
+    }
+  },
+  {
+    "id": 7532502,
+    "name": "Ostrołęka",
+    "state": "",
+    "country": "PL",
+    "coord": {
+      "lon": 21.589001,
+      "lat": 53.077801
+    }
+  },
+  {
+    "id": 7532503,
+    "name": "Tarnobrzeg",
+    "state": "",
+    "country": "PL",
+    "coord": {
+      "lon": 21.681601,
+      "lat": 50.573639
+    }
+  },
+  {
+    "id": 7532505,
+    "name": "Lubin",
+    "state": "",
+    "country": "PL",
+    "coord": {
+      "lon": 16.193899,
+      "lat": 51.399399
+    }
+  },
+  {
+    "id": 7532510,
+    "name": "Szklarska Poręba",
+    "state": "",
+    "country": "PL",
+    "coord": {
+      "lon": 15.4664,
+      "lat": 50.814201
+    }
+  },
+  {
+    "id": 7532515,
+    "name": "Pieszyce",
+    "state": "",
+    "country": "PL",
+    "coord": {
+      "lon": 16.553801,
+      "lat": 50.703602
+    }
+  },
+  {
+    "id": 7532521,
+    "name": "Kaliska",
+    "state": "",
+    "country": "PL",
+    "coord": {
+      "lon": 18.1784,
+      "lat": 53.896
+    }
+  },
+  {
+    "id": 7532522,
+    "name": "Tychy",
+    "state": "",
+    "country": "PL",
+    "coord": {
+      "lon": 19.008301,
+      "lat": 50.1264
+    }
+  },
+  {
+    "id": 7532534,
+    "name": "Inowrocław",
+    "state": "",
+    "country": "PL",
+    "coord": {
+      "lon": 18.249901,
+      "lat": 52.781601
+    }
+  },
+  {
+    "id": 7532536,
+    "name": "Bytom",
+    "state": "",
+    "country": "PL",
+    "coord": {
+      "lon": 18.876301,
+      "lat": 50.3652
+    }
+  },
+  {
+    "id": 7532537,
+    "name": "Częstochowa",
+    "state": "",
+    "country": "PL",
+    "coord": {
+      "lon": 19.122101,
+      "lat": 50.809601
+    }
+  },
+  {
+    "id": 7532538,
+    "name": "Koszalin",
+    "state": "",
+    "country": "PL",
+    "coord": {
+      "lon": 16.2166,
+      "lat": 54.2071
+    }
+  }
+]

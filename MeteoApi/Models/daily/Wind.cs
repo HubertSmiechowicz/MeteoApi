@@ -1,7 +1,7 @@
 ﻿using System.Text.Json.Serialization;
 using Newtonsoft.Json;
 
-namespace MeteoApi.Models.daily
+namespace MeteoApi.Models.Daily
 {
     public class Wind
     {

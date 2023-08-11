@@ -1,9 +1,7 @@
 ﻿namespace MeteoApi.Services.Interfaces
 {
-    public interface ICitiesService
+    public interface ICityCollectionService
     {
-        List<string> GetCities(string cityNameFragment);
-
         List<string> GetMainCities();
     }
 }

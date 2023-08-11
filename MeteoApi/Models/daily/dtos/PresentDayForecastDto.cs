@@ -1,4 +1,4 @@
-﻿namespace MeteoApi.Models.daily.dtos
+﻿namespace MeteoApi.Models.Daily.dtos
 {
     public class PresentDayForecastDto
     {

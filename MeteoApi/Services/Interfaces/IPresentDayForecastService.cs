@@ -1,4 +1,4 @@
-﻿using MeteoApi.Models.daily.dtos;
+﻿using MeteoApi.Models.Daily.dtos;
 
 namespace MeteoApi.Services.Interfaces
 {

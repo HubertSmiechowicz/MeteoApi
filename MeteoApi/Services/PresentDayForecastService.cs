@@ -1,5 +1,5 @@
-﻿using MeteoApi.Models.daily;
-using MeteoApi.Models.daily.dtos;
+﻿using MeteoApi.Models.Daily;
+using MeteoApi.Models.Daily.dtos;
 using MeteoApi.Services.Interfaces;
 
 namespace MeteoApi.Services

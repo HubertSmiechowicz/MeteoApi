@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using MeteoApi.Models.Cities;
 
 namespace MeteoApi.Models.FiveDays
 {
@@ -6,12 +7,12 @@ namespace MeteoApi.Models.FiveDays
     public class FiveDaysForecast
     {
         [JsonProperty("city")]
-        public City city { get; private set; }
+        public CityJson city { get; private set; }
 
         [JsonProperty("list")]
         public List<Forecast> list { get; private set; }
 
-        public FiveDaysForecast(City city, List<Forecast> list)
+        public FiveDaysForecast(CityJson city, List<Forecast> list)
         {
             this.city = city;
             this.list = list;

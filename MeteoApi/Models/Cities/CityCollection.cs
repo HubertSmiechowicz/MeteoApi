@@ -1,6 +1,6 @@
-﻿namespace MeteoApi.Models
+﻿namespace MeteoApi.Models.Cities
 {
-    public class CItyNamesRepo
+    public class CityCollection
     {
         private List<string> cities = new List<string>() { "Warszawa", "Łódź", "Kraków", "Lublin", "Poznań", "Wrocław", "Koszalin", "Rzeszów", "Sosnowiec", "Radom", "Zakopane", "Gdańsk", "Gdynia", "Sopot", "Radomsko", "Szczecin", "Katowice" };
 

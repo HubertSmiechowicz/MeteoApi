@@ -1,5 +1,5 @@
 ﻿using MeteoApi.Models;
-using MeteoApi.Models.daily;
+using MeteoApi.Models.Daily;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -73,6 +73,22 @@ namespace MeteoApi.Tests.Models
             // assert
 
             Assert.Equal("src/assets/rain.png", image);
+        }
+
+        [Fact]
+        public void GetCloudImage_ForNullRain_ReturnsCorrectImage()
+        {
+            // arrange
+
+            Clouds clouds = new Clouds("19");
+            Rain rain = null;
+
+            // act
+            var result = clouds.GetCloudImage(rain);
+
+            // assert
+
+            Assert.Equal("src/assets/sunny.png", result);
         }
     }
 }

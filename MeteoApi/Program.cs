@@ -1,5 +1,6 @@
 
 using MeteoApi.Services;
+using MeteoApi.Services.City;
 using MeteoApi.Services.Interfaces;
 
 namespace MeteoApi
@@ -26,7 +27,8 @@ namespace MeteoApi
             builder.Services.AddControllers();
             builder.Services.AddTransient<IWeatherApiConnect, WeatherApiConnect>();
             builder.Services.AddTransient<IPresentDayForecastService, PresentDayForecastService>();
-            builder.Services.AddTransient<ICitiesService, CitiesService>();
+            builder.Services.AddTransient<ICitiesJsonService, CitiesJsonService>();
+            builder.Services.AddTransient<ICityCollectionService, CityCollectionService>();
             builder.Services.AddTransient<IFiveDaysForecastService, FiveDaysForecastService>();
             builder.Services.AddTransient<IFilesOperationService, FilesOperationService>();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

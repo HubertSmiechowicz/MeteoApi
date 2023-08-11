@@ -226,3 +226,5 @@ D:\Dokumenty\source\repos\MeteoApplication\MeteoApi.Tests\obj\Debug\net7.0\refin
 D:\Dokumenty\source\repos\MeteoApplication\MeteoApi.Tests\obj\Debug\net7.0\MeteoApi.Tests.pdb
 D:\Dokumenty\source\repos\MeteoApplication\MeteoApi.Tests\obj\Debug\net7.0\MeteoApi.Tests.genruntimeconfig.cache
 D:\Dokumenty\source\repos\MeteoApplication\MeteoApi.Tests\obj\Debug\net7.0\ref\MeteoApi.Tests.dll
+D:\Dokumenty\source\repos\MeteoApplication\MeteoApi.Tests\bin\Debug\net7.0\Castle.Core.dll
+D:\Dokumenty\source\repos\MeteoApplication\MeteoApi.Tests\bin\Debug\net7.0\Moq.dll

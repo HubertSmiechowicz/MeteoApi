@@ -1,4 +1,4 @@
-﻿using MeteoApi.Models.daily.dtos;
+﻿using MeteoApi.Models.Daily.dtos;
 using MeteoApi.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
