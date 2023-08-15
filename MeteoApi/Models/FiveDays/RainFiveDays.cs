@@ -5,11 +5,11 @@ namespace MeteoApi.Models.FiveDays
     public class RainFiveDays : RainAbstract
     {
         [JsonProperty("3h")]
-        public override string rain { get; protected set; }
+        public override double rain { get; protected set; }
 
         public RainFiveDays() { }
 
-        public RainFiveDays(string threeH)
+        public RainFiveDays(double threeH)
         {
             rain = threeH;
         }

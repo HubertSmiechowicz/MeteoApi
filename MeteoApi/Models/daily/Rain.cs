@@ -6,11 +6,11 @@ namespace MeteoApi.Models.Daily
     public class Rain : RainAbstract
     {
         [JsonProperty("1h")]
-        public override string rain { get; protected set; }
+        public override double rain { get; protected set; }
 
         public Rain() { }
 
-        public Rain(string oneh)
+        public Rain(double oneh)
         {
             rain = oneh;
         }

@@ -4,17 +4,16 @@
     {
         public string name { get; private set; }
         public string description { get; private set; }
-        public string temp { get; private set; }
-        public string feelsLike { get; private set; }
-        public string tempMax { get; private set; }
-        public string pressure { get; private set; }
-        public string humidity { get; private set; }
-        public string windSpeed { get; private set; }
+        public double temp { get; private set; }
+        public double feelsLike { get; private set; }
+        public double tempMax { get; private set; }
+        public int pressure { get; private set; }
+        public int humidity { get; private set; }
+        public double windSpeed { get; private set; }
         public string image { get; private set; }
+        public int all { get; private set; }
 
-        public string all { get; private set; }
-
-        public PresentDayForecastDto(string name, string description, string temp, string feelsLike, string tempMax, string pressure, string humidity, string windSpeed, string image, string all)
+        public PresentDayForecastDto(string name, string description, double temp, double feelsLike, double tempMax, int pressure, int humidity, double windSpeed, string image, int all)
         {
             this.name = name;
             this.description = description;

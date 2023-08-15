@@ -21,16 +21,13 @@ namespace MeteoApi.Services
 
             var main = presentDayForecastFromApi.main;
 
-            double tempRounded;
-            main.CalculateTemp(presentDayForecastFromApi.main.temp, out tempRounded);
+            double tempRounded = main.CalculateTemp(presentDayForecastFromApi.main.temp);
 
-            double feelsRounded;
-            main.CalculateTemp(presentDayForecastFromApi.main.feels_like, out feelsRounded);
+            double feelsRounded = main.CalculateTemp(presentDayForecastFromApi.main.feels_like);
 
-            double tempMaxRounded;
-            main.CalculateTemp(presentDayForecastFromApi.main.temp_max, out tempMaxRounded);
+            double tempMaxRounded = main.CalculateTemp(presentDayForecastFromApi.main.temp_max);
 
-            return new PresentDayForecastDto(presentDayForecastFromApi.name, presentDayForecastFromApi.weather[0].description, tempRounded.ToString(), feelsRounded.ToString(), tempMaxRounded.ToString(), presentDayForecastFromApi.main.pressure, presentDayForecastFromApi.main.humidity, presentDayForecastFromApi.wind.speed, presentDayForecastFromApi.clouds.GetCloudImage(presentDayForecastFromApi.rain), presentDayForecastFromApi.clouds.all);
+            return new PresentDayForecastDto(presentDayForecastFromApi.name, presentDayForecastFromApi.weather[0].description, tempRounded, feelsRounded, tempMaxRounded, presentDayForecastFromApi.main.pressure, presentDayForecastFromApi.main.humidity, presentDayForecastFromApi.wind.speed, presentDayForecastFromApi.clouds.GetCloudImage(presentDayForecastFromApi.rain), presentDayForecastFromApi.clouds.all);
 
         }
 
@@ -42,10 +39,9 @@ namespace MeteoApi.Services
             {
                 var presentDayForecastFromApi = _connect.GetForecastFromApi<PresentDayForecast>(specURI, cityName);
 
-                double tempRounded;
-                presentDayForecastFromApi.main.CalculateTemp(presentDayForecastFromApi.main.temp, out tempRounded);
+                double tempRounded = presentDayForecastFromApi.main.CalculateTemp(presentDayForecastFromApi.main.temp);
 
-                var simpleDto = new PresentDayForecastSimpleDto(presentDayForecastFromApi.name, tempRounded.ToString(), presentDayForecastFromApi.clouds.GetCloudImage(presentDayForecastFromApi.rain));
+                var simpleDto = new PresentDayForecastSimpleDto(presentDayForecastFromApi.name, tempRounded, presentDayForecastFromApi.clouds.GetCloudImage(presentDayForecastFromApi.rain));
                 simpleDtos.Add(simpleDto);
             }
             return simpleDtos;

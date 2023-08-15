@@ -4,15 +4,15 @@
     {
         public string dt { get; private set; }
 
-        public string temp { get; private set; }
+        public double temp { get; private set; }
 
-        public string cloud { get; private set; }
+        public int cloud { get; private set; }
 
-        public string rain { get; private set; }
+        public double rain { get; private set; }
 
         public string image { get; private set; }
 
-        public ForecastDto(long dt, string temp, string cloud, string rain, string image) 
+        public ForecastDto(long dt, double temp, int cloud, double rain, string image) 
         {
             this.dt = fromUnixToDateTime(dt);
             this.temp = temp;
@@ -21,7 +21,7 @@
             this.image = image;
         }
 
-        public ForecastDto(string dt, string temp, string cloud, string rain, string image)
+        public ForecastDto(string dt, double temp, int cloud, double rain, string image)
         {
             this.dt = dt;
             this.temp = temp;

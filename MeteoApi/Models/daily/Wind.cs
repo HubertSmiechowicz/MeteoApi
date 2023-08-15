@@ -6,9 +6,9 @@ namespace MeteoApi.Models.Daily
     public class Wind
     {
         [JsonProperty("speed")]
-        public string speed { get; private set; }
+        public double speed { get; private set; }
 
-        public Wind(string speed)
+        public Wind(double speed)
         {
             this.speed = speed;
         }

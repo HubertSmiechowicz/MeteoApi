@@ -7,21 +7,21 @@ namespace MeteoApi.Models
     public class MainDate
     {
         [JsonProperty("temp")]
-        public string temp { get; private set; }
+        public double temp { get; private set; }
 
         [JsonProperty("feels_like")]
-        public string feels_like { get; private set; }
+        public double feels_like { get; private set; }
         [JsonProperty("temp_min")]
-        public string temp_min { get; private set; }
+        public double temp_min { get; private set; }
         [JsonProperty("temp_max")]
-        public string temp_max { get; private set; }
+        public double temp_max { get; private set; }
 
         [JsonProperty("pressure")]
-        public string pressure { get; private set; }
+        public int pressure { get; private set; }
         [JsonProperty("humidity")]
-        public string humidity { get; private set; }
+        public int humidity { get; private set; }
 
-        public MainDate(string temp, string feels_like, string temp_min, string temp_max, string pressure, string humidity)
+        public MainDate(double temp, double feels_like, double temp_min, double temp_max, int pressure, int humidity)
         {
             this.temp = temp;
             this.feels_like = feels_like;
@@ -31,12 +31,9 @@ namespace MeteoApi.Models
             this.humidity = humidity;
         }
 
-        public void CalculateTemp(string temperatureString, out double tempRounded)
+        public double CalculateTemp(double temperature)
         {
-            double temperature;
-            double.TryParse(temperatureString, System.Globalization.CultureInfo.InvariantCulture, out temperature);
-            temperature -= 273.15;
-            tempRounded = Math.Round(temperature, 1);
+            return Math.Round(temperature -= 273.15, 2);
         }
     }
 }
