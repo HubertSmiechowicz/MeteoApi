@@ -13,18 +13,5 @@
         public string image { get; private set; }
         public int all { get; private set; }
 
-        public PresentDayForecastDto(string name, string description, double temp, double feelsLike, double tempMax, int pressure, int humidity, double windSpeed, string image, int all)
-        {
-            this.name = name;
-            this.description = description;
-            this.temp = temp;
-            this.feelsLike = feelsLike;
-            this.tempMax = tempMax;
-            this.pressure = pressure;
-            this.humidity = humidity;
-            this.windSpeed = windSpeed;
-            this.image = image;
-            this.all = all;
-        }
     }
 }

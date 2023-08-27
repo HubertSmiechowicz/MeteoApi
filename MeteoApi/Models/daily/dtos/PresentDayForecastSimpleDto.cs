@@ -7,11 +7,5 @@
         public double temp { get; private set; }
         public string image { get; private set; }
 
-        public PresentDayForecastSimpleDto(string name, double temp, string image)
-        {
-            this.name = name;
-            this.temp = temp;
-            this.image = image;
-        }
     }
 }

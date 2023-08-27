@@ -31,7 +31,7 @@ namespace MeteoApi
             builder.Services.AddTransient<ICityCollectionService, CityCollectionService>();
             builder.Services.AddTransient<IFiveDaysForecastService, FiveDaysForecastService>();
             builder.Services.AddTransient<IFilesOperationService, FilesOperationService>();
-            // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+            builder.Services.AddAutoMapper(typeof(Program));
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
 

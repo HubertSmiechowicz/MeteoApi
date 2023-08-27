@@ -1,4 +1,5 @@
-﻿using MeteoApi.Models;
+﻿using AutoMapper;
+using MeteoApi.Models;
 using MeteoApi.Models.FiveDays;
 using MeteoApi.Models.FiveDays.dtos;
 using MeteoApi.Services.Interfaces;
@@ -12,23 +13,20 @@ namespace MeteoApi.Services
     public class FiveDaysForecastService : IFiveDaysForecastService
     {
         private IWeatherApiConnect _connect;
+        private IMapper _mapper;
         private readonly string specURI = "forecast?";
 
-        public FiveDaysForecastService(IWeatherApiConnect connect)
+        public FiveDaysForecastService(IWeatherApiConnect connect, IMapper mapper)
         {
             _connect = connect;
+            _mapper = mapper;
         }
 
         public FiveDaysForecastDto GetFiveDaysForecast(string name)
         {
             var forecastFromApi = _connect.GetForecastFromApi<FiveDaysForecast>(specURI, name);
 
-            var forecastDtos = forecastFromApi.list.Select(forecast =>
-            {
-                double tempRounded = forecast.main.CalculateTemp(forecast.main.temp);
-
-                return new ForecastDto(forecast.dt, tempRounded, forecast.clouds.all, checkRain(forecast.rain), forecast.clouds.GetCloudImage(forecast.rain));
-            }).ToList();
+            var forecastDtos = _mapper.Map<List<ForecastDto>>(forecastFromApi.list);
 
             return new FiveDaysForecastDto(forecastFromApi.city.Name, calculateAverageForecast(forecastDtos));
         }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
 using MeteoApi.Models.Cities;
 using MeteoApi.Services;
 
@@ -17,11 +18,14 @@ namespace MeteoApi.Tests.Services
 
             // arrange
 
+            string filePath = Path.Combine(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.FullName, "files", "city.list.test.json");
+
             FilesOperationService service = new FilesOperationService();
+            service.FilePath = filePath;
 
             // act
 
-            var listCitiesLength = service.ReadJsonFile<List<CityJson>>("D:\\Dokumenty\\source\\repos\\MeteoApplication\\MeteoApi.Tests\\files\\city.list.test.json").Count;
+            var listCitiesLength = service.ReadJsonFile<List<CityJson>>().Count;
 
             // assert
 
@@ -36,11 +40,14 @@ namespace MeteoApi.Tests.Services
 
             // arrange
 
+            string filePath = Path.Combine(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.FullName, "files", "city.list.test.json");
+
             FilesOperationService service = new FilesOperationService();
+            service.FilePath = filePath;
 
             // act
 
-            var cityNameResult = service.ReadJsonFile<List<CityJson>>("D:\\Dokumenty\\source\\repos\\MeteoApplication\\MeteoApi.Tests\\files\\city.list.test.json")[index].Name;
+            var cityNameResult = service.ReadJsonFile<List<CityJson>>()[index].Name;
 
             // assert
 

@@ -1,14 +1,20 @@
-﻿using MeteoApi.Services.Interfaces;
+﻿using MeteoApi.Models.FiveDays;
+using MeteoApi.Services.Interfaces;
+using Microsoft.AspNetCore.Mvc.Formatters;
 using Newtonsoft.Json;
+using System.Runtime.CompilerServices;
 using System.Text;
 
 namespace MeteoApi.Services
 {
     public class FilesOperationService : IFilesOperationService
     {
-        public T ReadJsonFile<T>(string fileLocation)
+
+        public string FilePath = Path.Combine(Directory.GetParent(Directory.GetCurrentDirectory()).FullName, "MeteoApi", "files", "city.list.json");
+
+        public T ReadJsonFile<T>()
         {
-            var reader = new StreamReader(fileLocation);
+            var reader = new StreamReader(FilePath);
             var citiesJson = "";
             try
             {

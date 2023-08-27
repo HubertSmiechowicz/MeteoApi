@@ -2,6 +2,6 @@
 {
     public interface IFilesOperationService
     {
-        T ReadJsonFile<T>(string fileLocation);
+        T ReadJsonFile<T>();
     }
 }

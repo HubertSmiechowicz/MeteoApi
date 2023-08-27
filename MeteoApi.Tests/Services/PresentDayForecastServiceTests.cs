@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using AutoMapper;
 using MeteoApi.Models;
+using MeteoApi.Models.Daily.dtos;
 using MeteoApi.Models.Daily;
 using MeteoApi.Services;
 using MeteoApi.Services.Interfaces;
@@ -20,6 +22,13 @@ namespace MeteoApi.Tests.Services
             return new PresentDayForecast(cityName, new List<Weather>() { new Weather("Lekkie zachmurzenie") }, new MainDate(temp, 295.15, 292.15, 296.15, 1014, 45), new Wind(10), new Clouds(all), new Rain(rain));
         }
 
+        private IMapper mapper()
+        {
+            var productProfile = new MeteoMapperProfile();
+            var configuration = new MapperConfiguration(cfg => cfg.AddProfile(productProfile));
+            return new Mapper(configuration);
+        }
+
         [Theory]
         [InlineData("Łódź")]
         [InlineData("Warszawa")]
@@ -34,7 +43,7 @@ namespace MeteoApi.Tests.Services
             apiConnectMock.Setup(m => m.GetForecastFromApi<PresentDayForecast>(It.IsAny<string>(), It.IsAny<string>()))
                 .Returns(presentDayForecast(cityName, 294.15, 21, 0));
 
-            var presentDayForecastService = new PresentDayForecastService(apiConnectMock.Object);
+            var presentDayForecastService = new PresentDayForecastService(apiConnectMock.Object, mapper());
 
             // act
 
@@ -59,7 +68,7 @@ namespace MeteoApi.Tests.Services
             apiConnectMock.Setup(m => m.GetForecastFromApi<PresentDayForecast>(It.IsAny<string>(), It.IsAny<string>()))
                 .Returns(presentDayForecast("Łódź", kelvin, 21, 0));
 
-            var presentDayForecastService = new PresentDayForecastService(apiConnectMock.Object);
+            var presentDayForecastService = new PresentDayForecastService(apiConnectMock.Object, mapper());
 
             // act
 
@@ -85,7 +94,7 @@ namespace MeteoApi.Tests.Services
             apiConnectMock.Setup(m => m.GetForecastFromApi<PresentDayForecast>(It.IsAny<string>(), It.IsAny<string>()))
                 .Returns(presentDayForecast("Łódź", 294.15, all, rain));
 
-            var presentDayForecastService = new PresentDayForecastService(apiConnectMock.Object);
+            var presentDayForecastService = new PresentDayForecastService(apiConnectMock.Object, mapper());
 
             // act
 
@@ -110,7 +119,7 @@ namespace MeteoApi.Tests.Services
             apiConnectMock.Setup(m => m.GetForecastFromApi<PresentDayForecast>(It.IsAny<string>(), It.IsAny<string>()))
                 .Returns(presentDayForecast(cityName, 294.15, 21, 0));
 
-            var presentDayForecastService = new PresentDayForecastService(apiConnectMock.Object);
+            var presentDayForecastService = new PresentDayForecastService(apiConnectMock.Object, mapper());
 
             // act
 
@@ -135,7 +144,7 @@ namespace MeteoApi.Tests.Services
             apiConnectMock.Setup(m => m.GetForecastFromApi<PresentDayForecast>(It.IsAny<string>(), It.IsAny<string>()))
                 .Returns(presentDayForecast("Łódź", kelvin, 21, 0));
 
-            var presentDayForecastService = new PresentDayForecastService(apiConnectMock.Object);
+            var presentDayForecastService = new PresentDayForecastService(apiConnectMock.Object, mapper());
 
             // act
 
@@ -161,7 +170,7 @@ namespace MeteoApi.Tests.Services
             apiConnectMock.Setup(m => m.GetForecastFromApi<PresentDayForecast>(It.IsAny<string>(), It.IsAny<string>()))
                 .Returns(presentDayForecast("Łódź", 294.15, all, rain));
 
-            var presentDayForecastService = new PresentDayForecastService(apiConnectMock.Object);
+            var presentDayForecastService = new PresentDayForecastService(apiConnectMock.Object, mapper());
 
             // act
 

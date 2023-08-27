@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using AutoMapper;
 using MeteoApi.Models;
 using MeteoApi.Models.Cities;
+using MeteoApi.Models.Daily;
 using MeteoApi.Models.FiveDays;
 using MeteoApi.Models.FiveDays.dtos;
 using MeteoApi.Services;
@@ -16,6 +18,13 @@ namespace MeteoApi.Tests.Services
 
     public class FiveDaysForecastServiceTests
     {
+
+        private IMapper mapper()
+        {
+            var productProfile = new MeteoMapperProfile();
+            var configuration = new MapperConfiguration(cfg => cfg.AddProfile(productProfile));
+            return new Mapper(configuration);
+        }
 
         private FiveDaysForecast GetData()
         {
@@ -115,7 +124,7 @@ namespace MeteoApi.Tests.Services
             connectApiMock.Setup(m => m.GetForecastFromApi<FiveDaysForecast>(It.IsAny<string>(), It.IsAny<string>()))
                 .Returns(GetData());
 
-            FiveDaysForecastService fiveDaysForecastService = new FiveDaysForecastService(connectApiMock.Object);
+            FiveDaysForecastService fiveDaysForecastService = new FiveDaysForecastService(connectApiMock.Object, mapper());
 
             // act
 
@@ -139,7 +148,7 @@ namespace MeteoApi.Tests.Services
             connectApiMock.Setup(m => m.GetForecastFromApi<FiveDaysForecast>(It.IsAny<string>(), It.IsAny<string>()))
                 .Returns(GetData());
 
-            FiveDaysForecastService fiveDaysForecastService = new FiveDaysForecastService(connectApiMock.Object);
+            FiveDaysForecastService fiveDaysForecastService = new FiveDaysForecastService(connectApiMock.Object, mapper());
 
             // act
 
@@ -159,7 +168,7 @@ namespace MeteoApi.Tests.Services
             connectApiMock.Setup(m => m.GetForecastFromApi<FiveDaysForecast>(It.IsAny<string>(), It.IsAny<string>()))
                 .Returns(GetData());
 
-            FiveDaysForecastService fiveDaysForecastService = new FiveDaysForecastService(connectApiMock.Object);
+            FiveDaysForecastService fiveDaysForecastService = new FiveDaysForecastService(connectApiMock.Object, mapper());
 
             // act
 
@@ -179,7 +188,7 @@ namespace MeteoApi.Tests.Services
             connectApiMock.Setup(m => m.GetForecastFromApi<FiveDaysForecast>(It.IsAny<string>(), It.IsAny<string>()))
                 .Returns(GetData());
 
-            FiveDaysForecastService fiveDaysForecastService = new FiveDaysForecastService(connectApiMock.Object);
+            FiveDaysForecastService fiveDaysForecastService = new FiveDaysForecastService(connectApiMock.Object, mapper());
 
             // act
 

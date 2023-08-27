@@ -33,7 +33,7 @@ namespace MeteoApi.Models
 
         public double CalculateTemp(double temperature)
         {
-            return Math.Round(temperature -= 273.15, 2);
+            return Math.Round(temperature -= 273.15, 1);
         }
     }
 }

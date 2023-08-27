@@ -10,9 +10,11 @@
 
         public double rain { get; private set; }
 
-        public string image { get; private set; }
+        public string image { get; set; }
 
-        public ForecastDto(long dt, double temp, int cloud, double rain, string image) 
+        public ForecastDto() { }
+
+        public ForecastDto(long dt, double temp, int cloud, double rain, string image)
         {
             this.dt = fromUnixToDateTime(dt);
             this.temp = temp;
@@ -30,7 +32,7 @@
             this.image = image;
         }
 
-        private string fromUnixToDateTime(long dt)
+        public string fromUnixToDateTime(long dt)
         {
             DateTimeOffset dateTimeOffset = DateTimeOffset.FromUnixTimeSeconds(dt);
             return $"{dateTimeOffset.Day}.{dateTimeOffset.Month}.{dateTimeOffset.Year}";

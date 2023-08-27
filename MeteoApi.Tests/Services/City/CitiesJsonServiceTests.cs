@@ -45,7 +45,7 @@ namespace MeteoApi.Tests.Services.City
             // arrange
 
             var filesOperationServiceMock = new Mock<IFilesOperationService>();
-            filesOperationServiceMock.Setup(m => m.ReadJsonFile<List<CityJson>>(It.IsAny<string>()))
+            filesOperationServiceMock.Setup(m => m.ReadJsonFile<List<CityJson>>())
                 .Returns(GetData());
 
             CitiesJsonService citiesJsonService = new CitiesJsonService(filesOperationServiceMock.Object);
@@ -65,7 +65,7 @@ namespace MeteoApi.Tests.Services.City
             // arrange
 
             var filesOperationServiceMock = new Mock<IFilesOperationService>();
-            filesOperationServiceMock.Setup(m => m.ReadJsonFile<List<CityJson>>(It.IsAny<string>()))
+            filesOperationServiceMock.Setup(m => m.ReadJsonFile<List<CityJson>>())
                 .Returns(GetData());
 
             CitiesJsonService citiesJsonService = new CitiesJsonService(filesOperationServiceMock.Object);
@@ -85,7 +85,7 @@ namespace MeteoApi.Tests.Services.City
             // arrange
 
             var filesOperationServiceMock = new Mock<IFilesOperationService>();
-            filesOperationServiceMock.Setup(m => m.ReadJsonFile<List<CityJson>>(It.IsAny<string>()))
+            filesOperationServiceMock.Setup(m => m.ReadJsonFile<List<CityJson>>())
                 .Returns(GetData());
 
             CitiesJsonService citiesJsonService = new CitiesJsonService(filesOperationServiceMock.Object);

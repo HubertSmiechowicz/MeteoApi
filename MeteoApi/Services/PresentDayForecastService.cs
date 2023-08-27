@@ -1,4 +1,5 @@
-﻿using MeteoApi.Models.Daily;
+﻿using AutoMapper;
+using MeteoApi.Models.Daily;
 using MeteoApi.Models.Daily.dtos;
 using MeteoApi.Services.Interfaces;
 
@@ -7,28 +8,23 @@ namespace MeteoApi.Services
     public class PresentDayForecastService : IPresentDayForecastService
     {
 
-        private IWeatherApiConnect _connect;
+        private readonly IWeatherApiConnect _connect;
+        private readonly IMapper _mapper;
         private readonly string specURI = "weather?";
 
-        public PresentDayForecastService(IWeatherApiConnect connect)
+        public PresentDayForecastService(IWeatherApiConnect connect, IMapper mapper)
         {
             _connect = connect;
+            _mapper = mapper;
         }
 
         public PresentDayForecastDto GetForecastForCity(string cityName)
         {
             var presentDayForecastFromApi = _connect.GetForecastFromApi<PresentDayForecast>(specURI, cityName);
 
-            var main = presentDayForecastFromApi.main;
+            var presentDayForecastDto = _mapper.Map<PresentDayForecastDto>(presentDayForecastFromApi);
 
-            double tempRounded = main.CalculateTemp(presentDayForecastFromApi.main.temp);
-
-            double feelsRounded = main.CalculateTemp(presentDayForecastFromApi.main.feels_like);
-
-            double tempMaxRounded = main.CalculateTemp(presentDayForecastFromApi.main.temp_max);
-
-            return new PresentDayForecastDto(presentDayForecastFromApi.name, presentDayForecastFromApi.weather[0].description, tempRounded, feelsRounded, tempMaxRounded, presentDayForecastFromApi.main.pressure, presentDayForecastFromApi.main.humidity, presentDayForecastFromApi.wind.speed, presentDayForecastFromApi.clouds.GetCloudImage(presentDayForecastFromApi.rain), presentDayForecastFromApi.clouds.all);
-
+            return presentDayForecastDto;
         }
 
 
@@ -39,9 +35,7 @@ namespace MeteoApi.Services
             {
                 var presentDayForecastFromApi = _connect.GetForecastFromApi<PresentDayForecast>(specURI, cityName);
 
-                double tempRounded = presentDayForecastFromApi.main.CalculateTemp(presentDayForecastFromApi.main.temp);
-
-                var simpleDto = new PresentDayForecastSimpleDto(presentDayForecastFromApi.name, tempRounded, presentDayForecastFromApi.clouds.GetCloudImage(presentDayForecastFromApi.rain));
+                var simpleDto = _mapper.Map<PresentDayForecastSimpleDto>(presentDayForecastFromApi);
                 simpleDtos.Add(simpleDto);
             }
             return simpleDtos;
