@@ -346,3 +346,5 @@ C:\Users\huber\source\repos\MeteoApi\MeteoApi.Tests\obj\Debug\net7.0\refint\Mete
 C:\Users\huber\source\repos\MeteoApi\MeteoApi.Tests\obj\Debug\net7.0\MeteoApi.Tests.pdb
 C:\Users\huber\source\repos\MeteoApi\MeteoApi.Tests\obj\Debug\net7.0\MeteoApi.Tests.genruntimeconfig.cache
 C:\Users\huber\source\repos\MeteoApi\MeteoApi.Tests\obj\Debug\net7.0\ref\MeteoApi.Tests.dll
+D:\Dokumenty\source\repos\MeteoApplication\MeteoApi.Tests\bin\Debug\net7.0\AutoMapper.dll
+D:\Dokumenty\source\repos\MeteoApplication\MeteoApi.Tests\bin\Debug\net7.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll

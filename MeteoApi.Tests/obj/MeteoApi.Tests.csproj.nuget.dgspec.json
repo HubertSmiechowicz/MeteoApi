@@ -1,39 +1,37 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\huber\\source\\repos\\MeteoApi\\MeteoApi.Tests\\MeteoApi.Tests.csproj": {}
+    "D:\\Dokumenty\\source\\repos\\MeteoApplication\\MeteoApi.Tests\\MeteoApi.Tests.csproj": {}
   },
   "projects": {
-    "C:\\Users\\huber\\source\\repos\\MeteoApi\\MeteoApi.Tests\\MeteoApi.Tests.csproj": {
+    "D:\\Dokumenty\\source\\repos\\MeteoApplication\\MeteoApi.Tests\\MeteoApi.Tests.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\huber\\source\\repos\\MeteoApi\\MeteoApi.Tests\\MeteoApi.Tests.csproj",
+        "projectUniqueName": "D:\\Dokumenty\\source\\repos\\MeteoApplication\\MeteoApi.Tests\\MeteoApi.Tests.csproj",
         "projectName": "MeteoApi.Tests",
-        "projectPath": "C:\\Users\\huber\\source\\repos\\MeteoApi\\MeteoApi.Tests\\MeteoApi.Tests.csproj",
+        "projectPath": "D:\\Dokumenty\\source\\repos\\MeteoApplication\\MeteoApi.Tests\\MeteoApi.Tests.csproj",
         "packagesPath": "C:\\Users\\huber\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\huber\\source\\repos\\MeteoApi\\MeteoApi.Tests\\obj\\",
+        "outputPath": "D:\\Dokumenty\\source\\repos\\MeteoApplication\\MeteoApi.Tests\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+          "D:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
           "C:\\Users\\huber\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "D:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config"
         ],
         "originalTargetFrameworks": [
           "net7.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "C:\\Users\\huber\\source\\repos\\MeteoApi\\MeteoApi\\MeteoApi.csproj": {
-                "projectPath": "C:\\Users\\huber\\source\\repos\\MeteoApi\\MeteoApi\\MeteoApi.csproj"
+              "D:\\Dokumenty\\source\\repos\\MeteoApplication\\MeteoApi\\MeteoApi.csproj": {
+                "projectPath": "D:\\Dokumenty\\source\\repos\\MeteoApplication\\MeteoApi\\MeteoApi.csproj"
               }
             }
           }
@@ -89,32 +87,30 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "D:\\Program Files\\dotnet\\sdk\\7.0.202\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\huber\\source\\repos\\MeteoApi\\MeteoApi\\MeteoApi.csproj": {
+    "D:\\Dokumenty\\source\\repos\\MeteoApplication\\MeteoApi\\MeteoApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\huber\\source\\repos\\MeteoApi\\MeteoApi\\MeteoApi.csproj",
+        "projectUniqueName": "D:\\Dokumenty\\source\\repos\\MeteoApplication\\MeteoApi\\MeteoApi.csproj",
         "projectName": "MeteoApi",
-        "projectPath": "C:\\Users\\huber\\source\\repos\\MeteoApi\\MeteoApi\\MeteoApi.csproj",
+        "projectPath": "D:\\Dokumenty\\source\\repos\\MeteoApplication\\MeteoApi\\MeteoApi.csproj",
         "packagesPath": "C:\\Users\\huber\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\huber\\source\\repos\\MeteoApi\\MeteoApi\\obj\\",
+        "outputPath": "D:\\Dokumenty\\source\\repos\\MeteoApplication\\MeteoApi\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+          "D:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
           "C:\\Users\\huber\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "D:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config"
         ],
         "originalTargetFrameworks": [
           "net7.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -169,7 +165,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "D:\\Program Files\\dotnet\\sdk\\7.0.202\\RuntimeIdentifierGraph.json"
         }
       }
     }
