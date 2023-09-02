@@ -363,4 +363,4 @@ MigrationBackup/
 FodyWeavers.xsd
 
 # Api key
-/MeteoApi/Properties/apiKeys.json
+apiKeys.json
