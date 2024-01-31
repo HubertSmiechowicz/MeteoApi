@@ -31,6 +31,7 @@ namespace MeteoApi
             builder.Services.AddTransient<ICityCollectionService, CityCollectionService>();
             builder.Services.AddTransient<IFiveDaysForecastService, FiveDaysForecastService>();
             builder.Services.AddTransient<IFilesOperationService, FilesOperationService>();
+            builder.Services.AddTransient<IAirPollutionService, AirPollutionService>();
             builder.Services.AddAutoMapper(typeof(Program));
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();

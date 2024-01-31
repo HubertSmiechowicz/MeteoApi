@@ -3,6 +3,9 @@ using MeteoApi.Models.Daily;
 using MeteoApi.Models.Daily.dtos;
 using MeteoApi.Models.FiveDays.dtos;
 using MeteoApi.Models.FiveDays;
+using MeteoApi.Models.Air.dtos;
+using MeteoApi.Models.Air;
+
 
 namespace MeteoApi.Models
 {
@@ -33,6 +36,17 @@ namespace MeteoApi.Models
                 .ForMember(m => m.cloud, c => c.MapFrom(s => s.clouds.all))
                 .ForMember(m => m.rain, c => c.MapFrom(s => s.rain.rain))
                 .ForMember(m => m.image, c => c.MapFrom(s => s.clouds.GetCloudImage(s.rain)));
+
+            CreateMap<AirPollutionList, AirPollutionDto>()
+                .ForMember(m => m.descriptionPollution, c => c.MapFrom(s => s.List[0].Main.GetPollutionDescription(s.List[0].Main.Aqi)))
+                .ForMember(m => m.imagePollution, c => c.MapFrom(s => s.List[0].Main.GetPollutionImage(s.List[0].Main.Aqi)))
+                .ForMember(m => m.Co, c => c.MapFrom(s => s.List[0].Components.Co))
+                .ForMember(m => m.No, c => c.MapFrom(s => s.List[0].Components.No))
+                .ForMember(m => m.No2, c => c.MapFrom(s => s.List[0].Components.No2))
+                .ForMember(m => m.O3, c => c.MapFrom(s => s.List[0].Components.O3))
+                .ForMember(m => m.So2, c => c.MapFrom(s => s.List[0].Components.So2))
+                .ForMember(m => m.Pm2_5, c => c.MapFrom(s => s.List[0].Components.Pm2_5))
+                .ForMember(m => m.Nh3, c => c.MapFrom(s => s.List[0].Components.Nh3));
         }
     }
 }
