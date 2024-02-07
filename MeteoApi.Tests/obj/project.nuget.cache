@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "YvP2GKadY3o5b3xhSj54cDplwae0jwtcosvUUhJ7FWpZ6oi9V0bdBX4145kTrKxBVSzMZ2dTRjbzfU1uKx61bg==",
+  "dgSpecHash": "D3d1gKiD5QyDxhrr6YnWfEgRTZfBv1EApDsx+PcsUiP+i378vQZzQZbW9O5M/rVUiEg0HnSzFThFuyR/62zbLQ==",
   "success": true,
-  "projectFilePath": "E:\\Users\\huber\\source\\repos\\MeteoApi\\MeteoApi.Tests\\MeteoApi.Tests.csproj",
+  "projectFilePath": "C:\\Users\\huber\\source\\back\\MeteoApi\\MeteoApi.Tests\\MeteoApi.Tests.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\huber\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
     "C:\\Users\\huber\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.1\\automapper.extensions.microsoft.dependencyinjection.12.0.1.nupkg.sha512",
