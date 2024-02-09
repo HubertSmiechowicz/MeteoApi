@@ -18,7 +18,7 @@ namespace MeteoApi
                 options.AddPolicy(name: MyAllowSpecificOrigins,
                     policy =>
                     {
-                        policy.WithOrigins("http://localhost:5173")
+                        policy.WithOrigins("https://meteonow-3ccbd.web.app/")
                         .AllowAnyHeader()
                         .AllowAnyMethod();
                     });
